@@ -1,0 +1,132 @@
+//package wakim_pa1;
+
+import java.util.Scanner;
+
+public class Wakim_p1 {
+
+private static final Scanner Scanner = null;
+
+public static int encrypted (	int numberFromUser) 
+ {	
+	//read the data from user
+	//encrypt it
+//	int numberFromUser;
+	int digit1, digit2, digit3, digit4, temp;
+//	Scanner input = new Scanner(System.in);
+//	numberFromUser = input.nextInt();
+
+	
+	//get each decimal space
+	digit1 = numberFromUser / 1000;
+	digit2 = numberFromUser / 100 % 10;
+	digit3 = numberFromUser / 10 % 10;
+	digit4 = numberFromUser % 10;
+	
+	digit1 = (digit1 + 7) % 10;
+	digit2 = (digit2 + 7)  % 10;
+	digit3 = (digit3 + 7)  % 10;
+	digit4 = (digit4 + 7)  % 10;
+
+	 //swap
+     temp = digit1; 
+     digit1 = digit3;
+     digit3 = temp;
+
+	temp = digit2;
+	digit2 = digit4;
+	digit4 = temp;
+	
+
+	System.out.println("the encryted integer is:"+digit1+""+digit2+""+digit3+""+digit4+"");
+
+	
+	//submit encrypted number back to main
+	return (digit1 + digit2 + digit3 + digit4);
+	
+}
+
+
+public static int decrypt (int numberFromUser) {
+	    
+	   int digit1 = numberFromUser / 1000;
+	   int digit2 = numberFromUser / 100 % 10;
+	   int digit3 = numberFromUser / 10 % 10;
+	   int digit4 = numberFromUser % 10;
+
+	    digit1 = (digit1 + 3) % 10;
+		digit2 = (digit2 + 3) % 10;
+		digit3 = (digit3 + 3) % 10;
+		digit4 = (digit4 + 3) % 10;
+		
+		//swap back
+		int temp = digit3;
+		digit3 = digit1;
+		digit1 = temp;
+		
+		temp = digit2;
+		digit2 = digit4;
+		digit4 = temp;
+		
+		return (digit1 + digit2 + digit3 + digit4);
+	 
+
+}
+
+public static void main(String[] args)
+{
+//ask user for numbers and store
+System.out.print("Enter a number: ");
+//int digit1, digit2, digit3, digit4, numberFromUser;
+//int numberFromUser;
+Scanner input = new Scanner(System.in);
+int numberFromUser = input.nextInt();
+//if ( numberFromUser.length != 4 ) {
+//	System.out.print("Invalid value  Enter a four digit number\n");
+//}
+//
+//////get each decimal space
+//digit1 = numberFromUser / 1000;
+//digit2 = numberFromUser / 100 % 10;
+//digit3 = numberFromUser / 10 % 10;
+//digit4 = numberFromUser % 10;
+////
+//digit1 = (digit1 + 7) % 10;
+//digit2 = (digit2 + 7)  % 10;
+//digit3 = (digit3 + 7)  % 10;
+//digit4 = (digit4 + 7)  % 10;
+
+//
+//
+//// //swap
+// temp = digit1; 
+// digit1 = digit3;
+// digit3 = temp;
+//
+//temp = digit2;
+//digit2 = digit4;
+//digit4 = temp;
+encrypted(numberFromUser);
+
+
+//
+////
+//    digit1 = (digit1 + 3) % 10;
+//    digit2 = (digit2 + 3) % 10;
+//    digit3 = (digit3 + 3) % 10;
+//    digit4 = (digit4 + 3) % 10;
+//////
+////swap back
+//temp = digit3;
+//digit3 = digit1;
+//digit1 = temp;
+//////
+//temp = digit2;
+//digit2 = digit4;
+//digit4 = temp;
+decrypt (numberFromUser);
+System.out.println("the original number is:"+numberFromUser+"");
+
+}
+
+
+}
